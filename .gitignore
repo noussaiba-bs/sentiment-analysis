@@ -1,0 +1,20 @@
+# Environnement Python
+venv/
+.env
+.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Données volumineuses — télécharger depuis Kaggle (voir README)
+data/*.csv
+
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

@@ -1,0 +1,14 @@
+# Python 3.10+ recommandé
+pandas>=2.0,<3
+numpy>=1.26,<3
+scikit-learn>=1.4,<2
+
+matplotlib>=3.8,<4
+seaborn>=0.13,<1
+wordcloud>=1.9,<2
+Pillow>=10.0,<12
+
+nltk>=3.8,<4
+
+jupyter>=1.0.0
+ipykernel>=6.0.0
