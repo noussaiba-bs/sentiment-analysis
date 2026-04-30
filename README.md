@@ -1,105 +1,105 @@
-# Analyse de sentiments sur des avis produits
+# Sentiment analysis on product reviews
 
-Projet de **classification de texte** : prédire le sentiment (**positif**, **neutre**, **négatif**) à partir du texte d’un avis, avec un pipeline classique **NLP + scikit-learn** (TF-IDF, plusieurs modèles, comparaison des performances).
+**Text classification** project: predict sentiment (**positive**, **neutral**, **negative**) from review text, using a classic **NLP + scikit-learn** pipeline (TF-IDF, multiple models, performance comparison).
 
 
-## Résultats
+## Results
 
-| Modèle | Accuracy | Precision | Recall | F1-Score | Temps d'entraînement |
-|--------|----------|-----------|--------|----------|----------------------|
+| Model | Accuracy | Precision | Recall | F1-Score | Training Time |
+|-------|----------|-----------|--------|----------|----------------|
 | **Logistic Regression** | 92.3% | 0.92 | 0.92 | 0.92 | 2.5s |
 | **Random Forest** | 89.7% | 0.90 | 0.89 | 0.89 | 45.2s |
 | **Naive Bayes** | 88.1% | 0.88 | 0.88 | 0.88 | 0.8s |
 
-**Meilleur modèle** : Logistic Regression avec **92.3% d'accuracy** 
+**Best model**: Logistic Regression with **92.3% accuracy**
 
 ---
 
-## Objectif
+## Objective
 
-Créer un système automatique d'analyse de sentiments capable de classifier des avis clients en trois catégories :
+Create an automatic sentiment analysis system capable of classifying customer reviews into three categories:
 
--  **Positif** (Score 4-5) - Avis favorables
--  **Neutre** (Score 3) - Avis mitigés
--  **Négatif** (Score 1-2) - Avis défavorables
+- **Positive** (Score 4-5) - Favorable reviews
+- **Neutral** (Score 3) - Mixed reviews
+- **Negative** (Score 1-2) - Unfavorable reviews
 
-Ce projet démontre l'application pratique du **Natural Language Processing (NLP)** et du **Machine Learning** pour résoudre un problème réel d'analyse d'opinions clients.
+This project demonstrates the practical application of **Natural Language Processing (NLP)** and **Machine Learning** to solve a real-world customer opinion analysis problem.
 
 ---
 
-##  Dataset
+## Dataset
 
 **Amazon Fine Food Reviews**
--  Source : [Kaggle - Amazon Fine Food Reviews](https://www.kaggle.com/datasets/snap/amazon-fine-food-reviews)
--  Taille : ~500,000+ avis clients
--  Période : 1999-2012
--  Contenu : Avis textuels avec scores de 1 à 5 étoiles
+- Source: [Kaggle - Amazon Fine Food Reviews](https://www.kaggle.com/datasets/snap/amazon-fine-food-reviews)
+- Size: ~500,000+ customer reviews
+- Period: 1999-2012
+- Content: Textual reviews with ratings from 1 to 5 stars
 
-**Caractéristiques du dataset utilisé :**
-- Avis textuels en anglais
-- Scores de notation (1-5 étoiles)
-- Données nettoyées et prétraitées
+**Dataset characteristics used:**
+- English textual reviews
+- Rating scores (1-5 stars)
+- Cleaned and preprocessed data
 
 ---
 
-## Méthodologie
+## Methodology
 
-### **Exploration des Données**
-- Analyse de la distribution des sentiments
-- Statistiques sur la longueur des textes
-- Identification des mots les plus fréquents
-- Visualisation avec word clouds
+### **Data Exploration**
+- Analysis of sentiment distribution
+- Text length statistics
+- Identification of most frequent words
+- Visualization with word clouds
 
-### **Preprocessing du Texte**
-Techniques de nettoyage appliquées :
--  Conversion en minuscules
--  Suppression des URLs et mentions
--  Suppression de la ponctuation et des chiffres
--  Filtrage des stop words (mots vides)
--  Lemmatization (réduction au radical)
--  Tokenization
+### **Text Preprocessing**
+Cleaning techniques applied:
+- Lowercase conversion
+- Removal of URLs and mentions
+- Removal of punctuation and numbers
+- Stop words filtering
+- Lemmatization (reduction to root form)
+- Tokenization
 
 ### **Feature Engineering**
 - **TF-IDF Vectorization** (Term Frequency - Inverse Document Frequency)
-  - 5,000 features sélectionnées
-  - Unigrams et Bigrams (1-2 mots)
-  - Filtrage des mots trop rares ou trop fréquents
+  - 5,000 selected features
+  - Unigrams and Bigrams (1-2 words)
+  - Filtering of too rare or too frequent words
 
-### **Modèles Implémentés**
+### **Models Implemented**
 
-**Logistic Regression** 
-- Classification linéaire simple mais efficace
-- Régularisation L2 pour éviter l'overfitting
-- **Meilleure performance** : 92.3% d'accuracy
+**Logistic Regression**
+- Simple but effective linear classification
+- L2 regularization to avoid overfitting
+- **Best performance**: 92.3% accuracy
 
-**Random Forest** 
-- Ensemble de 100 arbres de décision
-- Robuste mais plus lent à entraîner
-- Performance : 89.7% d'accuracy
+**Random Forest**
+- Ensemble of 100 decision trees
+- Robust but slower to train
+- Performance: 89.7% accuracy
 
-**Multinomial Naive Bayes** 
-- Basé sur le théorème de Bayes
-- **Très rapide** (0.8s d'entraînement)
-- Performance : 88.1% d'accuracy
+**Multinomial Naive Bayes**
+- Based on Bayes' theorem
+- **Very fast** (0.8s training time)
+- Performance: 88.1% accuracy
 
-### **Évaluation**
-- Split Train/Test : 80/20
-- Métriques : Accuracy, Precision, Recall, F1-Score
-- Matrices de confusion pour chaque modèle
-- Validation croisée
+### **Evaluation**
+- Train/Test Split: 80/20
+- Metrics: Accuracy, Precision, Recall, F1-Score
+- Confusion matrices for each model
+- Cross-validation
 
 ---
 
 
-## Structure du dépôt
+## Repository structure
 
 ```
-├── data/                    # Données (voir section Données)
-├── images/                  # Graphiques et nuages de mots générés
+├── data/                    # Data (see Data section)
+├── images/                  # Generated graphs and word clouds
 ├── models/                  # tfidf_vectorizer.pkl, best_model.pkl, metadata.pkl
 ├── notebooks/
 │   └── sentiment_analysis.ipynb
-├── model_comparison.csv     # Tableau récap des métriques (généré)
+├── model_comparison.csv     # Summary metrics table (generated)
 ├── requirements.txt
 └── README.md
 ```
@@ -107,7 +107,7 @@ Techniques de nettoyage appliquées :
 
 ## Installation
 
-À la racine du projet :
+At the project root:
 
 ```bash
 python -m venv venv
@@ -127,46 +127,43 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-## Données
+## Data
 
-Le notebook lit le fichier **`data/Reviews.csv`**.
+The notebook reads the file **`data/Reviews.csv`**.
 
-- Jeu public courant : [Amazon Fine Food Reviews sur Kaggle](https://www.kaggle.com/datasets/snap/amazon-fine-food-reviews) (fichier nommé **`Reviews.csv`**).
+- Common public dataset: [Amazon Fine Food Reviews on Kaggle](https://www.kaggle.com/datasets/snap/amazon-fine-food-reviews) (file named **`Reviews.csv`**).
 
+Expected columns (minimum): **`Score`** (1–5) and **`Text`**.
 
-Colonnes attendues (au minimum) : **`Score`** (1–5) et **`Text`**.
+## Running the notebook
 
-## Lancer le notebook
-
-Les chemins (`data/`, `images/`, `models/`) sont **relatifs à la racine du projet**. Il faut donc démarrer Jupyter **depuis cette racine** :
+Paths (`data/`, `images/`, `models/`) are **relative to the project root**. You must start Jupyter **from this root**:
 
 ```bash
-cd chemin/vers/sentiment-analysis
+cd path/to/sentiment-analysis
 jupyter notebook notebooks/sentiment_analysis.ipynb
 ```
 
-Ou avec JupyterLab :
+Or with JupyterLab:
 
 ```bash
 jupyter lab notebooks/sentiment_analysis.ipynb
 ```
 
-## Résultats produits (après exécution complète)
+## Results produced (after full execution)
 
-| Sortie | Description |
+| Output | Description |
 |--------|-------------|
-| `data/reviews_cleaned.csv` | Données avec texte nettoyé |
-| `models/tfidf_vectorizer.pkl` | Vectoriseur entraîné |
-| `models/best_model.pkl` | Meilleur classifieur (selon accuracy du notebook) |
-| `models/metadata.pkl` | Métadonnées (modèle, métriques, date) |
-| `model_comparison.csv` | Comparaison des 3 modèles |
-| `images/*.png` | EDA, matrices de confusion, comparaison, word clouds |
+| `data/reviews_cleaned.csv` | Data with cleaned text |
+| `models/tfidf_vectorizer.pkl` | Trained vectorizer |
+| `models/best_model.pkl` | Best classifier (according to notebook accuracy) |
+| `models/metadata.pkl` | Metadata (model, metrics, date) |
+| `model_comparison.csv` | Comparison of the 3 models |
+| `images/*.png` | EDA, confusion matrices, comparison, word clouds |
 
 
-## Limites 
+## Limitations
 
-- Sentiment déduit des **étoiles** (approximation ; le texte peut contredire la note).
-- Classes souvent **déséquilibrées** ; les métriques *weighted* ne suffisent pas toujours à juger la classe minoritaire.
-- **Sarcasme/Ironie** : Difficulté à détecter le second degré
-
-
+- Sentiment inferred from **stars** (approximation; text may contradict the rating)
+- Often **imbalanced** classes; weighted metrics are not always sufficient to judge the minority class
+- **Sarcasm/Irony**: Difficulty detecting second-degree language
